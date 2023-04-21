@@ -1,13 +1,17 @@
 import React from "react";
 import { Route, BrowserRouter as Router, Routes} from "react-router-dom";
-import { StylesProvider } from "@material-ui/core/styles";
+import { StylesProvider, createGenerateClassName } from "@material-ui/core/styles";
 
 import Album from "./pages/Landing";
 import Pricing from "./pages/Pricing";
 
+const generateClassName = createGenerateClassName({
+  productionPrefix: 'ma'
+});
+
 const App = () => {
   return (
-      <StylesProvider>
+      <StylesProvider generateClassName={generateClassName}>
         
         <Router>
           <Routes>
